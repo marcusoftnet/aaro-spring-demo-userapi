@@ -3,7 +3,7 @@ package com.aaro.user_api.service;
 import com.aaro.user_api.model.User;
 import com.aaro.user_api.model.UserApiResult;
 import com.aaro.user_api.repository.UserRepository;
-import com.aaro.user_api.service.dto.UserResponseDTO;
+import com.aaro.user_api.service.dto.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -129,10 +129,7 @@ public class UserServiceTests {
     UserService sut = new UserService(repository);
 
     // Create the request/command to hold parameters
-    CreateUserRequest request = new CreateUserRequest();
-    request.setFirstName("Marcus");
-    request.setLastName("Hammarberg");
-    request.setEmail("marcus@marcusoft.net");
+    CreateUserRequest request = new CreateUserRequest("Marcus","Hammarberg","marcus@marcusoft.net");
 
     // act
     UserApiResult<UserResponseDTO> createResponse = sut.createUser(request);
@@ -152,10 +149,7 @@ public class UserServiceTests {
     UserService sut = new UserService(repository);
 
     // Create the request/command to hold parameters
-    CreateUserRequest request = new CreateUserRequest();
-    request.setFirstName("Marcus");
-    request.setLastName("Hammarberg");
-    request.setEmail("");
+    CreateUserRequest request = new CreateUserRequest("Marcus","Hammarberg", "");
 
     // act
     UserApiResult<UserResponseDTO> createResponse = sut.createUser(request);

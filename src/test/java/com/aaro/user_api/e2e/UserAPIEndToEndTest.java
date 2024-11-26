@@ -1,5 +1,5 @@
 package com.aaro.user_api.e2e;
-import com.aaro.user_api.service.CreateUserRequest;
+import com.aaro.user_api.service.dto.CreateUserRequest;
 import com.aaro.user_api.service.dto.UserResponseDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -68,10 +68,7 @@ public class UserAPIEndToEndTest {
     resetUserDataFile();
 
     // Act - POST a new user
-    CreateUserRequest request = new CreateUserRequest();
-    request.setFirstName("Marcus");
-    request.setLastName("Hammarberg");
-    request.setEmail("marcus@marcusoft.net");
+    CreateUserRequest request = new CreateUserRequest("Marcus", "Hammarberg", "marcus@marcusoft.net");
     ResponseEntity<UserResponseDTO> createResponse = restTemplate.postForEntity(baseUrl, request, UserResponseDTO.class);
 
     // Assert - POST

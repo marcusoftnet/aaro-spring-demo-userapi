@@ -2,7 +2,7 @@ package com.aaro.user_api.controllers;
 
 import com.aaro.user_api.model.UserApiResult;
 import com.aaro.user_api.service.*;
-import com.aaro.user_api.service.dto.UserResponseDTO;
+import com.aaro.user_api.service.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

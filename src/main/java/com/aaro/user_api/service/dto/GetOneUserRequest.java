@@ -1,4 +1,4 @@
-package com.aaro.user_api.service;
+package com.aaro.user_api.service.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

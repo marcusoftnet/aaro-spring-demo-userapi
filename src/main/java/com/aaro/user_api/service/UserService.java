@@ -3,12 +3,11 @@ package com.aaro.user_api.service;
 import com.aaro.user_api.model.User;
 import com.aaro.user_api.model.UserApiResult;
 import com.aaro.user_api.repository.UserRepository;
-import com.aaro.user_api.service.dto.UserResponseDTO;
+import com.aaro.user_api.service.dto.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class UserService {
@@ -44,7 +43,7 @@ public class UserService {
 
   public UserApiResult<UserResponseDTO> createUser(CreateUserRequest request) {
     try {
-      User createdUser = userRepository.create(request.getFirstName(), request.getLastName(), request.getEmail());
+      User createdUser = userRepository.create(request.firstName(), request.lastName(), request.email());
 
       UserApiResult<User> validationResult = createdUser.Validate();
       if(validationResult.isFailure()) {
