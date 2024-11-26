@@ -92,8 +92,7 @@ public class UserServiceTests {
     UserService sut = new UserService(repository);
 
     // Create the request/command to hold parameters
-    GetOneUserRequest request = new GetOneUserRequest();
-    request.setId("2");
+    GetOneUserRequest request = new GetOneUserRequest("2");
 
     // act
     UserApiResult<UserResponseDTO> userResponse = sut.getOneUser(request);
@@ -111,8 +110,7 @@ public class UserServiceTests {
     UserRepository repository = new InMemoryUserRepository(seedUsers);
     UserService sut = new UserService(repository);
 
-    GetOneUserRequest request = new GetOneUserRequest();
-    request.setId("2");
+    GetOneUserRequest request = new GetOneUserRequest("2");
 
     // act
     UserApiResult<UserResponseDTO> userResponse = sut.getOneUser(request);

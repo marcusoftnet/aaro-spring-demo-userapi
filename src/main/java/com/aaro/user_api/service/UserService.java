@@ -30,12 +30,12 @@ public class UserService {
 
   public UserApiResult<UserResponseDTO> getOneUser(GetOneUserRequest request) {
     try {
-      Optional<User> userFromDatabase = userRepository.findById(request.getId());
+      Optional<User> userFromDatabase = userRepository.findById(request.id());
       if (userFromDatabase.isPresent()) {
         UserResponseDTO userDTOs = UserResponseDTO.fromUser(userFromDatabase.get());
         return UserApiResult.success(userDTOs);
       }
-      return UserApiResult.failure("Could not find user with id: " + request.getId());
+      return UserApiResult.failure("Could not find user with id: " + request.id());
     } catch (Exception e) {
       return UserApiResult.failure("Failed to fetch user: " + e.getMessage());
     }
