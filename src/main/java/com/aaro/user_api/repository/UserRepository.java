@@ -7,9 +7,14 @@ import java.util.Optional;
 
 public interface UserRepository {
   List<User> findAll();
+
   Optional<User> findById(String id);
+
   User create(String firstName, String lastName, String email);
+
   void save(User user);
+
   void update(User user);
+
   void deleteById(String id);
 }

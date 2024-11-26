@@ -46,7 +46,7 @@ public class UserService {
       User createdUser = userRepository.create(request.firstName(), request.lastName(), request.email());
 
       UserApiResult<User> validationResult = createdUser.Validate();
-      if(validationResult.isFailure()) {
+      if (validationResult.isFailure()) {
         return UserApiResult.failure(validationResult.getErrorMessage());
       }
 
@@ -66,7 +66,7 @@ public class UserService {
 
       User user = new User(request.getId(), request.getFirstName(), request.getLastName(), request.getEmail());
       UserApiResult<User> validationResult = user.Validate();
-      if(validationResult.isFailure()) {
+      if (validationResult.isFailure()) {
         return UserApiResult.failure(validationResult.getErrorMessage());
       }
 
