@@ -169,8 +169,7 @@ public class UserServiceTests {
     UserService sut = new UserService(repository);
 
     // Create the request/command to hold parameters
-    DeleteUserRequest request = new DeleteUserRequest();
-    request.setId("1");
+    DeleteUserRequest request = new DeleteUserRequest("1");
 
     // act
     UserApiResult<String> response = sut.deleteUser(request);
@@ -189,8 +188,7 @@ public class UserServiceTests {
     UserService sut = new UserService(repository);
 
     // Create the request/command to hold parameters
-    DeleteUserRequest request = new DeleteUserRequest();
-    request.setId("1");
+    DeleteUserRequest request = new DeleteUserRequest("1");
 
     // act
     UserApiResult<String> response = sut.deleteUser(request);

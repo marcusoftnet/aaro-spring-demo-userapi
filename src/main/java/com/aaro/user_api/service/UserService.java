@@ -79,14 +79,14 @@ public class UserService {
 
   public UserApiResult<String> deleteUser(DeleteUserRequest request) {
     try {
-      Optional<User> existing = userRepository.findById(request.getId());
+      Optional<User> existing = userRepository.findById(request.id());
       if (existing.isEmpty()) {
-        return UserApiResult.failure("User not found with ID: " + request.getId());
+        return UserApiResult.failure("User not found with ID: " + request.id());
       }
 
-      userRepository.deleteById(request.getId());
+      userRepository.deleteById(request.id());
 
-      return UserApiResult.success("Deleted user " + request.getId());
+      return UserApiResult.success("Deleted user " + request.id());
     } catch (Exception e) {
       return UserApiResult.failure(e.getMessage());
     }
